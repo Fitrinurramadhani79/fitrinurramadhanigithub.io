@@ -168,9 +168,15 @@ td {
         <!-- Div for additional info -->
         <div id="additionalInfo" style="display: none;">
             <h2>Informasi Tambahan</h2>
-            <p>Fitri adalah mahasiswa aktif pada program studi ilmu komputer sejak tahub 2023 hingga saat ini.</p>
+            <p>Fitri adalah mahasiswa aktif dengan minat dalam bidang teknologi dan pendidikan. Selain itu, ia juga aktif dalam berbagai kegiatan sosial dan organisasi di kampus.</p>
         </div>
+
+        <!-- Button to download CV -->
+        <button id="downloadCVButton">Download CV</button>
     </div>
+
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script>
         // JavaScript untuk menampilkan informasi tambahan
@@ -183,6 +189,32 @@ td {
                 infoDiv.style.display = 'none';
                 this.textContent = 'Tampilkan Info Tambahan';
             }
+        });
+
+        // JavaScript untuk mendownload CV sebagai PDF
+        document.getElementById('downloadCVButton').addEventListener('click', function() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Menambahkan judul dan informasi CV ke PDF
+            doc.setFontSize(20);
+            doc.text("CV WINI - Fitri Nur Ramadhani", 10, 10);
+            doc.setFontSize(12);
+            doc.text("Tempat, Tanggal Lahir: RAHA, 6 November 2005", 10, 30);
+            doc.text("Agama: Islam", 10, 40);
+            doc.text("Tinggi Badan: 158 CM", 10, 50);
+            doc.text("Berat Badan: 43 KG", 10, 60);
+            doc.text("Alamat: XGM7+7WC Lepo-Lepo, Kota Kendari, Sulawesi Tenggara", 10, 70);
+            doc.text("Kewarganegaraan: Indonesia", 10, 80);
+            doc.text("Email: fitrinurramadhani79@gmail.com", 10, 90);
+
+            doc.text("Riwayat Pendidikan:", 10, 110);
+            doc.text("2013-2018: SD NEGRI 7 KATOBU", 10, 120);
+            doc.text("2018-2020: SMP NEGRI 2 RAHA", 10, 130);
+            doc.text("2020-2023: SMA NEGRI 1 RAHA", 10, 140);
+
+            // Mengunduh file PDF
+            doc.save("CV_Fitri_Nur_Ramadhani.pdf");
         });
     </script>
 </body>
