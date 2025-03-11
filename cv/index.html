@@ -6,44 +6,97 @@
     <title>CV WINI</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #040404;
-        }
-        .container {
-            width: 60%;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(49, 167, 125, 0.1);
-        }
-        .header {
-            text-align: center;
-        }
-        .header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid #cf0f0fa1;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #7e7979;
-        }
+        /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3498db;
+}
+
+h1 {
+    font-size: 28px;
+    margin-top: 10px;
+    color: #2c3e50;
+}
+
+p {
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 22px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+th {
+    background-color: #3498db;
+    color: #fff;
+    text-align: left;
+}
+
+td {
+    background-color: #ecf0f1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p, td, th {
+        font-size: 14px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -108,6 +161,29 @@
                 <td>SMA NEGRI 1 RAHA</td>
             </tr>
         </table>
+
+        <!-- Button to trigger JavaScript function -->
+        <button id="showInfoButton">Tampilkan Info Tambahan</button>
+        
+        <!-- Div for additional info -->
+        <div id="additionalInfo" style="display: none;">
+            <h2>Informasi Tambahan</h2>
+            <p>Fitri adalah mahasiswa aktif pada program studi ilmu komputer sejak tahub 2023 hingga saat ini.</p>
+        </div>
     </div>
+
+    <script>
+        // JavaScript untuk menampilkan informasi tambahan
+        document.getElementById('showInfoButton').addEventListener('click', function() {
+            var infoDiv = document.getElementById('additionalInfo');
+            if (infoDiv.style.display === 'none') {
+                infoDiv.style.display = 'block';
+                this.textContent = 'Sembunyikan Info Tambahan';
+            } else {
+                infoDiv.style.display = 'none';
+                this.textContent = 'Tampilkan Info Tambahan';
+            }
+        });
+    </script>
 </body>
 </html>
